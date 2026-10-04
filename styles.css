@@ -1,0 +1,253 @@
+:root {
+  color-scheme: light;
+  --paper: #f7f6f3;
+  --ink: #1a1916;
+  --muted: #5c574e;
+  --line: #d9d4cb;
+  --field: #fff;
+  --error: #8f2d2d;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-body: ui-sans-serif, system-ui, sans-serif;
+  --measure: 40rem;
+}
+
+@supports (color: light-dark(black, white)) {
+  :root {
+    color-scheme: light dark;
+    --paper: light-dark(#f7f6f3, #161513);
+    --ink: light-dark(#1a1916, #f3f1ea);
+    --muted: light-dark(#5c574e, #b7b1a6);
+    --line: light-dark(#d9d4cb, #3a3631);
+    --field: light-dark(#fff, #221f1c);
+    --error: light-dark(#8f2d2d, #f0b4b4);
+  }
+}
+
+@media (forced-colors: active) {
+  :root {
+    --paper: Canvas;
+    --ink: CanvasText;
+    --muted: CanvasText;
+    --line: CanvasText;
+    --field: Canvas;
+    --error: CanvasText;
+  }
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  min-block-size: 100dvb;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+main {
+  box-sizing: border-box;
+  max-inline-size: var(--measure);
+  margin-inline: auto;
+  padding-block: clamp(2.25rem, 8dvb, 5.5rem);
+  padding-inline: clamp(1.25rem, 5vw, 2rem);
+}
+
+.intro {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  container-type: inline-size;
+}
+
+.intro img {
+  flex: 0 0 auto;
+  inline-size: 8.75rem;
+  block-size: auto;
+  aspect-ratio: 675 / 825;
+  object-fit: cover;
+}
+
+@container (min-width: 36rem) {
+  .intro img {
+    inline-size: 11rem;
+  }
+}
+
+.intro div {
+  flex: 1 1 12rem;
+  min-inline-size: 0;
+}
+
+h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 1.2rem + 3.5vw, 3.6rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+h2 {
+  margin: 2.25rem 0 0.75rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.where,
+.profile {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+a {
+  color: var(--ink);
+  text-underline-offset: 0.18em;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (pointer: coarse) {
+  .profile a {
+    display: inline-block;
+    padding-block: 0.35rem;
+    min-block-size: 1.5rem;
+  }
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+.opening {
+  margin: 2rem 0 0;
+  font-size: 1.125rem;
+}
+
+main > p:not(.opening, .later) {
+  margin: 1rem 0 0;
+}
+
+ul {
+  margin: 0;
+  padding-inline-start: 1.15rem;
+}
+
+li:not(:first-child) {
+  margin-block-start: 0.85rem;
+}
+
+.later {
+  margin: 2rem 0 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.contact {
+  margin-block-start: 0.5rem;
+  padding-block-start: 0.25rem;
+}
+
+.field {
+  margin-block-start: 1rem;
+}
+
+label {
+  display: block;
+  margin-block-end: 0.35rem;
+}
+
+.req {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+input,
+textarea,
+button {
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 1rem;
+}
+
+input,
+textarea {
+  display: block;
+  inline-size: 100%;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--field);
+  color: var(--ink);
+  padding: 0.7rem 0.75rem;
+}
+
+input {
+  min-block-size: 3rem;
+}
+
+textarea {
+  resize: vertical;
+  min-block-size: 8rem;
+  line-height: 1.5;
+}
+
+.field :user-invalid {
+  border-color: var(--error);
+  border-inline-start-width: 3px;
+}
+
+.error {
+  display: none;
+  margin: 0.35rem 0 0;
+  color: var(--error);
+  font-size: 0.875rem;
+}
+
+.field :user-invalid + .error {
+  display: block;
+}
+
+button {
+  margin-block-start: 1.25rem;
+  min-block-size: 3rem;
+  padding-inline: 1.25rem;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+#form-status {
+  margin: 0.9rem 0 0;
+  min-block-size: 1.5rem;
+  font-size: 0.9375rem;
+}
+
+@media (pointer: coarse) {
+  input {
+    min-block-size: 3.25rem;
+  }
+
+  button {
+    min-block-size: 3.25rem;
+  }
+}
