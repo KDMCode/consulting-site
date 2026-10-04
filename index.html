@@ -16,10 +16,82 @@
           <p class="profile"><a href="https://www.linkedin.com/in/kylemillerclt">LinkedIn</a></p>
         </div>
       </header>
-      <p class="work">Independent consulting for small and medium-sized businesses, with a focus on mergers and acquisitions. Operations and finance experience is what lets him help small businesses and startups think strategically about staffing and business processes.</p>
-      <p>He is chief financial officer and was, earlier, chief operating officer. He led the acquisitions of Active Screw &amp; Fastener, Midwest Structural Products, A&amp;B Fasteners, and The Industrial Depot.</p>
-      <p>M.B.A., Wake Forest University. B.A. in Economics, Johns Hopkins University.</p>
+
+      <p class="opening">Kyle Miller helps small and medium businesses. His mergers and acquisitions, operations, and finance experience is what lets him help them think about staffing and business processes.</p>
+      <p>He is chief financial officer and was, earlier, chief operating officer. M.B.A., Wake Forest University. B.A. in Economics, Johns Hopkins University.</p>
+
+      <h2>How he can help</h2>
+      <ul>
+        <li>
+          <strong>Acquisitions and integration.</strong>
+          From deal structure and negotiation through post-closing consolidation, including Active Screw &amp; Fastener, Midwest Structural Products, A&amp;B Fasteners, and The Industrial Depot.
+        </li>
+        <li>
+          <strong>Staffing and overhead.</strong>
+          Restructuring staff and reducing overhead, including outsourcing repetitive accounting work.
+        </li>
+        <li>
+          <strong>Operations and process.</strong>
+          Lean operations, warehouse process, and inventory accuracy.
+        </li>
+        <li>
+          <strong>Finance and cash.</strong>
+          Financial planning, treasury, cash management, and working capital.
+        </li>
+      </ul>
+
       <p class="later">Hourly and subscription work will be offered later.</p>
+
+      <section class="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact</h2>
+        <p>The note is about a free 15-minute intro call.</p>
+        <form id="contact" method="post" action="index.html" onsubmit="event.preventDefault(); document.getElementById('form-status').textContent = 'This form is not sending yet.';">
+          <div class="field">
+            <label for="name">Name <span class="req">(required)</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" enterkeyhint="next" required aria-errormessage="name-error">
+            <p id="name-error" class="error">Name is required.</p>
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="req">(required)</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" enterkeyhint="next" required aria-errormessage="email-error">
+            <p id="email-error" class="error">Enter an email address.</p>
+          </div>
+          <div class="field">
+            <label for="message">Message <span class="req">(required)</span></label>
+            <textarea id="message" name="message" rows="5" enterkeyhint="done" required aria-errormessage="message-error"></textarea>
+            <p id="message-error" class="error">Message is required.</p>
+          </div>
+          <button type="submit">Submit</button>
+          <p id="form-status" role="status"></p>
+          <noscript>
+            <p>This form is not sending yet.</p>
+          </noscript>
+        </form>
+      </section>
     </main>
+    <script>
+      (function () {
+        const form = document.getElementById("contact");
+
+        const syncInvalid = (control) => {
+          if (!control.matches || !control.matches("input, textarea")) {
+            return;
+          }
+          if (control.matches(":user-invalid")) {
+            control.setAttribute("aria-invalid", "true");
+          } else {
+            control.removeAttribute("aria-invalid");
+          }
+        };
+
+        form.addEventListener("blur", (event) => syncInvalid(event.target), true);
+        form.addEventListener("invalid", (event) => syncInvalid(event.target), true);
+        form.addEventListener("input", (event) => {
+          if (event.target.hasAttribute("aria-invalid")) {
+            syncInvalid(event.target);
+          }
+        });
+      }());
+    </script>
   </body>
 </html>
