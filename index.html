@@ -7,68 +7,80 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main>
-      <header class="intro">
+    <div class="page">
+      <header class="hero">
         <img src="kyle-miller.jpg" alt="Kyle Miller" width="675" height="825" fetchpriority="high">
-        <div>
+        <div class="hero-copy">
+          <p class="kicker">Independent consulting</p>
           <h1>Kyle Miller</h1>
           <p class="where">Charlotte, NC</p>
           <p class="profile"><a href="https://www.linkedin.com/in/kylemillerclt">LinkedIn</a></p>
+          <p class="credentials">I am chief financial officer and was, earlier, chief operating officer. M.B.A., Wake Forest University. B.A. in Economics, Johns Hopkins University.</p>
+          <p class="lead">I help small and medium businesses. I focus on mergers and acquisitions. Operations and finance experience is what lets me help them think about staffing and business processes.</p>
         </div>
       </header>
 
-      <p class="opening">Kyle Miller helps small and medium businesses. His mergers and acquisitions, operations, and finance experience is what lets him help them think about staffing and business processes.</p>
-      <p>He is chief financial officer and was, earlier, chief operating officer. M.B.A., Wake Forest University. B.A. in Economics, Johns Hopkins University.</p>
+      <main>
+        <section class="ways" aria-labelledby="ways-heading">
+          <h2 id="ways-heading">How I can help</h2>
+          <ul>
+            <li>
+              <p class="index" aria-hidden="true">01</p>
+              <h3>Acquisitions and integration</h3>
+              <p>I have led acquisitions from deal structure and negotiation through post-closing consolidation, including Active Screw &amp; Fastener, Midwest Structural Products, A&amp;B Fasteners, and The Industrial Depot.</p>
+            </li>
+            <li>
+              <p class="index" aria-hidden="true">02</p>
+              <h3>Staffing and overhead</h3>
+              <p>I have restructured staff and reduced overhead, including by outsourcing repetitive accounting work.</p>
+            </li>
+            <li>
+              <p class="index" aria-hidden="true">03</p>
+              <h3>Operations and process</h3>
+              <p>I have worked on lean operations, warehouse process, and inventory accuracy.</p>
+            </li>
+            <li>
+              <p class="index" aria-hidden="true">04</p>
+              <h3>Finance and cash</h3>
+              <p>I have handled financial planning, treasury, cash management, and working capital.</p>
+            </li>
+          </ul>
+        </section>
 
-      <h2>How he can help</h2>
-      <ul>
-        <li>
-          <strong>Acquisitions and integration.</strong>
-          From deal structure and negotiation through post-closing consolidation, including Active Screw &amp; Fastener, Midwest Structural Products, A&amp;B Fasteners, and The Industrial Depot.
-        </li>
-        <li>
-          <strong>Staffing and overhead.</strong>
-          Restructuring staff and reducing overhead, including outsourcing repetitive accounting work.
-        </li>
-        <li>
-          <strong>Operations and process.</strong>
-          Lean operations, warehouse process, and inventory accuracy.
-        </li>
-        <li>
-          <strong>Finance and cash.</strong>
-          Financial planning, treasury, cash management, and working capital.
-        </li>
-      </ul>
+        <p class="later">I will offer hourly and subscription work later.</p>
 
-      <p class="later">Hourly and subscription work will be offered later.</p>
-
-      <section class="contact" aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Contact</h2>
-        <p>The note is about a free 15-minute intro call.</p>
-        <form id="contact" method="post" action="index.html" onsubmit="event.preventDefault(); document.getElementById('form-status').textContent = 'This form is not sending yet.';">
-          <div class="field">
-            <label for="name">Name <span class="req">(required)</span></label>
-            <input id="name" name="name" type="text" autocomplete="name" enterkeyhint="next" required aria-errormessage="name-error">
-            <p id="name-error" class="error">Name is required.</p>
+        <section class="contact" aria-labelledby="contact-heading">
+          <div class="contact-intro">
+            <h2 id="contact-heading">A note</h2>
+            <p>This note is about a free 15-minute intro call.</p>
           </div>
-          <div class="field">
-            <label for="email">Email <span class="req">(required)</span></label>
-            <input id="email" name="email" type="email" autocomplete="email" enterkeyhint="next" required aria-errormessage="email-error">
-            <p id="email-error" class="error">Enter an email address.</p>
-          </div>
-          <div class="field">
-            <label for="message">Message <span class="req">(required)</span></label>
-            <textarea id="message" name="message" rows="5" enterkeyhint="done" required aria-errormessage="message-error"></textarea>
-            <p id="message-error" class="error">Message is required.</p>
-          </div>
-          <button type="submit">Submit</button>
-          <p id="form-status" role="status"></p>
-          <noscript>
-            <p>This form is not sending yet.</p>
-          </noscript>
-        </form>
-      </section>
-    </main>
+          <form id="contact" method="post" action="index.html" onsubmit="event.preventDefault(); document.getElementById('form-status').textContent = 'This form is not sending yet.';">
+            <div class="fields">
+              <div class="field">
+                <label for="name">Name <span class="req">(required)</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" enterkeyhint="next" required aria-errormessage="name-error">
+                <p id="name-error" class="error">Name is required.</p>
+              </div>
+              <div class="field">
+                <label for="email">Email <span class="req">(required)</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" enterkeyhint="next" required aria-errormessage="email-error">
+                <p id="email-error" class="error">Enter an email address.</p>
+              </div>
+              <div class="field field-message">
+                <label for="message">Message <span class="req">(required)</span></label>
+                <textarea id="message" name="message" rows="5" enterkeyhint="done" required aria-errormessage="message-error"></textarea>
+                <p id="message-error" class="error">Message is required.</p>
+              </div>
+            </div>
+            <button type="submit">Submit</button>
+            <p id="form-status" role="status"></p>
+            <noscript>
+              <p>This form is not sending yet.</p>
+            </noscript>
+          </form>
+        </section>
+      </main>
+    </div>
     <script>
       (function () {
         const form = document.getElementById("contact");
