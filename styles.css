@@ -6,7 +6,7 @@
   --line: #d9d4cb;
   --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --font-body: ui-sans-serif, system-ui, sans-serif;
-  --measure: 36rem;
+  --measure: 40rem;
 }
 
 @supports (color: light-dark(black, white)) {
@@ -46,45 +46,91 @@ main {
   box-sizing: border-box;
   max-inline-size: var(--measure);
   margin-inline: auto;
-  padding-block: clamp(2.75rem, 14dvb, 7.5rem);
+  padding-block: clamp(2.25rem, 8dvb, 5.5rem);
   padding-inline: clamp(1.25rem, 5vw, 2rem);
 }
 
-.who {
-  margin: 0 0 1.75rem;
-  color: var(--muted);
-  font-size: 0.9375rem;
+.intro {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  container-type: inline-size;
+}
+
+.intro img {
+  flex: 0 0 auto;
+  inline-size: 8.75rem;
+  block-size: auto;
+  aspect-ratio: 675 / 825;
+  object-fit: cover;
+}
+
+@container (min-width: 36rem) {
+  .intro img {
+    inline-size: 11rem;
+  }
+}
+
+.intro div {
+  flex: 1 1 12rem;
+  min-inline-size: 0;
 }
 
 h1 {
   margin: 0;
   color: var(--ink);
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 1.4rem + 5vw, 4.75rem);
+  font-size: clamp(2.4rem, 1.2rem + 3.5vw, 3.6rem);
   font-weight: 500;
   letter-spacing: -0.03em;
-  line-height: 0.95;
+  line-height: 1;
   text-wrap: balance;
 }
 
-.placeholder {
-  margin: 0.9rem 0 0;
+.where,
+.profile {
+  margin: 0.45rem 0 0;
   color: var(--muted);
   font-size: 0.9375rem;
+}
+
+.profile a {
+  color: var(--ink);
+  text-underline-offset: 0.18em;
+}
+
+.profile a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (pointer: coarse) {
+  .profile a {
+    display: inline-block;
+    padding-block: 0.35rem;
+    min-block-size: 1.5rem;
+  }
+}
+
+.work,
+main > p {
+  text-wrap: pretty;
 }
 
 .work {
   margin: 2rem 0 0;
-  max-inline-size: 28rem;
   font-size: 1.125rem;
-  text-wrap: pretty;
 }
 
-.closed {
-  margin: 2.5rem 0 0;
+main > p:not(.work, .later) {
+  margin: 1rem 0 0;
+}
+
+.later {
+  margin: 2rem 0 0;
   padding-block-start: 1.25rem;
   border-block-start: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.9375rem;
-  text-wrap: pretty;
 }
