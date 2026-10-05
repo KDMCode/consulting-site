@@ -154,6 +154,18 @@ h1 {
   font-size: 0.95rem;
 }
 
+.degrees {
+  margin: 0.45rem 0 0;
+  padding-inline-start: 1.15rem;
+  max-inline-size: 36rem;
+  color: var(--rail-muted);
+  font-size: 0.95rem;
+}
+
+.degrees li:not(:first-child) {
+  margin-block-start: 0.15rem;
+}
+
 .lead {
   margin-block-start: 1.75rem;
   max-inline-size: 38rem;
