@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kyle Miller: CFO, Owner &amp; Investor, Consulting</title>
-    <meta name="description" content="Kyle Miller is an owner and investor in small and medium-sized businesses who draws on finance and operations experience to help companies grow, staff, and improve processes.">
+    <title>Kyle Miller</title>
+    <meta name="description" content="Kyle Miller is an owner and investor in small and medium-sized businesses in varying industries, based in Charlotte, NC.">
     <link rel="canonical" href="https://kdmhq.com/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Kyle Miller: CFO, Owner &amp; Investor, Consulting">
-    <meta property="og:description" content="Kyle Miller is an owner and investor in small and medium-sized businesses who draws on finance and operations experience to help companies grow, staff, and improve processes.">
+    <meta property="og:title" content="Kyle Miller">
+    <meta property="og:description" content="Kyle Miller is an owner and investor in small and medium-sized businesses in varying industries, based in Charlotte, NC.">
     <meta property="og:image" content="https://kdmhq.com/kyle-miller.jpg">
     <meta property="og:url" content="https://kdmhq.com/">
     <meta name="twitter:card" content="summary_large_image">
@@ -21,136 +21,12 @@
       <header class="hero">
         <img src="kyle-miller.jpg" alt="Kyle Miller" width="675" height="825" fetchpriority="high">
         <div class="hero-copy">
-          <p class="kicker">Independent consulting</p>
           <h1>Kyle Miller</h1>
           <p class="where">Charlotte, NC</p>
-          <p class="profile"><a href="https://www.linkedin.com/in/kylemillerclt">LinkedIn</a></p>
-          <p class="credentials">I am an owner and investor in small and medium-sized businesses in varying industries. I have worked on the finance and operations side of these businesses and draw from that experience when helping other companies grow, staff, and figure out processes.</p>
-          <ul class="degrees">
-            <li>M.B.A., Wake Forest University</li>
-            <li>B.A. in Economics, Johns Hopkins University</li>
-          </ul>
-          <p class="lead">I help owners and leadership teams step back and think through strategy. Good strategy doesn’t live in one department. It touches sales, financing, operations, human resources, quality control, and lean operations, and I help connect those pieces so the plan holds together.</p>
+          <p class="credentials">I am an owner and investor in small and medium-sized businesses in varying industries.</p>
+          <p class="profile"><a href="consulting/">Consulting</a> · <a href="consulting/#contact-heading">Contact</a> · <a href="https://www.linkedin.com/in/kylemillerclt">LinkedIn</a></p>
         </div>
       </header>
-
-      <main>
-        <section class="ways" aria-labelledby="ways-heading">
-          <h2 id="ways-heading">How I can help</h2>
-          <ul>
-            <li>
-              <p class="index" aria-hidden="true">01</p>
-              <h3>Acquisitions and integration</h3>
-              <p>If you’re looking for guidance on an acquisition, from deal structure and negotiation through post-closing consolidation — whether a mature, stable company or a turnaround opportunity.</p>
-            </li>
-            <li>
-              <p class="index" aria-hidden="true">02</p>
-              <h3>Staffing and overhead</h3>
-              <p>If you’re looking to right-size expenses, including staff and third-party vendors, to align costs with long-term financial health.</p>
-            </li>
-            <li>
-              <p class="index" aria-hidden="true">03</p>
-              <h3>Operations and process</h3>
-              <p>If you’re looking to strengthen lean operations, warehouse process, or inventory accuracy.</p>
-            </li>
-            <li>
-              <p class="index" aria-hidden="true">04</p>
-              <h3>Finance and cash</h3>
-              <p>If you’re looking for guidance on financial planning, treasury, cash management, or working capital.</p>
-            </li>
-            <li>
-              <p class="index" aria-hidden="true">05</p>
-              <h3>Board and corporate structure</h3>
-              <p>If you’re looking for a board-level perspective or guidance on corporate structure decisions.</p>
-            </li>
-          </ul>
-        </section>
-
-
-        <section class="contact" aria-labelledby="contact-heading">
-          <div class="contact-intro">
-            <h2 id="contact-heading">Intro call</h2>
-            <p>Leave a note for a free intro call.</p>
-          </div>
-          <form id="contact" method="post" action="https://api.web3forms.com/submit">
-            <input type="hidden" name="access_key" value="b184a59a-7b9f-4246-9d53-760a24d50055">
-            <input type="hidden" name="from_name" value="Kyle Miller consulting site">
-            <input type="hidden" name="subject" value="Consulting site inquiry">
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <div class="fields">
-              <div class="field">
-                <label for="name">Name <span class="req">(required)</span></label>
-                <input id="name" name="name" type="text" autocomplete="name" enterkeyhint="next" required aria-errormessage="name-error">
-                <p id="name-error" class="error">Name is required.</p>
-              </div>
-              <div class="field">
-                <label for="email">Email <span class="req">(required)</span></label>
-                <input id="email" name="email" type="email" autocomplete="email" enterkeyhint="next" required aria-errormessage="email-error">
-                <p id="email-error" class="error">Enter an email address.</p>
-              </div>
-              <div class="field field-message">
-                <label for="message">Message <span class="req">(required)</span></label>
-                <textarea id="message" name="message" rows="5" enterkeyhint="done" required aria-errormessage="message-error"></textarea>
-                <p id="message-error" class="error">Message is required.</p>
-              </div>
-            </div>
-            <button type="submit">Submit</button>
-            <p id="form-status" role="status"></p>
-          </form>
-        </section>
-      </main>
     </div>
-    <script>
-      (function () {
-        const form = document.getElementById("contact");
-
-        const syncInvalid = (control) => {
-          if (!control.matches || !control.matches("input, textarea")) {
-            return;
-          }
-          if (control.matches(":user-invalid")) {
-            control.setAttribute("aria-invalid", "true");
-          } else {
-            control.removeAttribute("aria-invalid");
-          }
-        };
-
-        form.addEventListener("blur", (event) => syncInvalid(event.target), true);
-        form.addEventListener("invalid", (event) => syncInvalid(event.target), true);
-        const status = document.getElementById("form-status");
-        form.addEventListener("submit", async (event) => {
-          event.preventDefault();
-          const name = form.elements.name.value.trim();
-          form.elements.subject.value = name ? "Consulting site inquiry: " + name : "Consulting site inquiry";
-          const button = form.querySelector('button[type="submit"]');
-          button.disabled = true;
-          status.textContent = "Sending…";
-          try {
-            const response = await fetch(form.action, {
-              method: "POST",
-              headers: { Accept: "application/json" },
-              body: new FormData(form)
-            });
-            const result = await response.json();
-            if (response.ok && result.success) {
-              form.reset();
-              status.textContent = "Thanks — your note was sent. I’ll be in touch soon.";
-            } else {
-              status.textContent = "Sorry, something went wrong. Please try again.";
-            }
-          } catch (error) {
-            status.textContent = "Sorry, something went wrong. Please try again.";
-          } finally {
-            button.disabled = false;
-          }
-        });
-
-        form.addEventListener("input", (event) => {
-          if (event.target.hasAttribute("aria-invalid")) {
-            syncInvalid(event.target);
-          }
-        });
-      }());
-    </script>
   </body>
 </html>
