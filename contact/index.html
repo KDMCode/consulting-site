@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact: Kyle Miller</title>
+    <meta name="description" content="Contact Kyle Miller.">
+    <link rel="canonical" href="https://kdmhq.com/contact/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact: Kyle Miller">
+    <meta property="og:description" content="Contact Kyle Miller.">
+    <meta property="og:image" content="https://kdmhq.com/kyle-miller.jpg">
+    <meta property="og:url" content="https://kdmhq.com/contact/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero" style="grid-template-columns: 1fr;">
+        <div class="hero-copy">
+          <p class="kicker"><a href="../" style="color: inherit;">Home</a> · <a href="../consulting/" style="color: inherit;">Consulting</a></p>
+          <h1>Get in touch</h1>
+        </div>
+      </header>
+      <main>
+        <section class="contact" aria-labelledby="contact-heading">
+          <div class="contact-intro">
+            <h2 id="contact-heading">Contact form</h2>
+            <p>Include a valid email so I can get back to you.</p>
+          </div>
+          <form id="contact" method="post" action="https://api.web3forms.com/submit">
+            <input type="hidden" name="access_key" value="b184a59a-7b9f-4246-9d53-760a24d50055">
+            <input type="hidden" name="from_name" value="Kyle Miller consulting site">
+            <input type="hidden" name="subject" value="Consulting site inquiry">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="fields">
+              <div class="field">
+                <label for="name">Name <span class="req">(required)</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" enterkeyhint="next" required aria-errormessage="name-error">
+                <p id="name-error" class="error">Name is required.</p>
+              </div>
+              <div class="field">
+                <label for="email">Email <span class="req">(required)</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" enterkeyhint="next" required aria-errormessage="email-error">
+                <p id="email-error" class="error">Enter an email address.</p>
+              </div>
+              <div class="field field-message">
+                <label for="message">Message <span class="req">(required)</span></label>
+                <textarea id="message" name="message" rows="5" enterkeyhint="done" required aria-errormessage="message-error"></textarea>
+                <p id="message-error" class="error">Message is required.</p>
+              </div>
+            </div>
+            <button type="submit">Submit</button>
+            <p id="form-status" role="status"></p>
+          </form>
+        </section>
+
+        <section class="faq" aria-labelledby="faq-heading" style="margin-top: 3rem;">
+          <h2 id="faq-heading">FAQs</h2>
+          <ul style="list-style: none; padding: 0; display: grid; gap: 1rem;">
+            <li>
+              <h3>How does consulting work?</h3>
+              <p>[Answer pending from Kyle]</p>
+            </li>
+            <li>
+              <h3>Are you interested in acquiring my business?</h3>
+              <p>[Answer pending from Kyle]</p>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+    <script>
+      (function () {
+        const form = document.getElementById("contact");
+
+        const syncInvalid = (control) => {
+          if (!control.matches || !control.matches("input, textarea")) {
+            return;
+          }
+          if (control.matches(":user-invalid")) {
+            control.setAttribute("aria-invalid", "true");
+          } else {
+            control.removeAttribute("aria-invalid");
+          }
+        };
+
+        form.addEventListener("blur", (event) => syncInvalid(event.target), true);
+        form.addEventListener("invalid", (event) => syncInvalid(event.target), true);
+        const status = document.getElementById("form-status");
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const name = form.elements.name.value.trim();
+          form.elements.subject.value = name ? "Consulting site inquiry: " + name : "Consulting site inquiry";
+          const button = form.querySelector('button[type="submit"]');
+          button.disabled = true;
+          status.textContent = "Sending…";
+          try {
+            const response = await fetch(form.action, {
+              method: "POST",
+              headers: { Accept: "application/json" },
+              body: new FormData(form)
+            });
+            const result = await response.json();
+            if (response.ok && result.success) {
+              form.reset();
+              status.textContent = "Thanks — your note was sent. I’ll be in touch soon.";
+            } else {
+              status.textContent = "Sorry, something went wrong. Please try again.";
+            }
+          } catch (error) {
+            status.textContent = "Sorry, something went wrong. Please try again.";
+          } finally {
+            button.disabled = false;
+          }
+        });
+
+        form.addEventListener("input", (event) => {
+          if (event.target.hasAttribute("aria-invalid")) {
+            syncInvalid(event.target);
+          }
+        });
+      }());
+    </script>
+  </body>
+</html>
