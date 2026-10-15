@@ -409,23 +409,23 @@ textarea:focus-visible {
   }
 }
 
-/* Homepage primary button: explicit colors so dark mode (light-dark vars) and iOS/Chrome can't recolor it */
-html body.home nav a.primary,
-html body.home nav a.primary:link,
-html body.home nav a.primary:visited {
+/* Homepage buttons: all three identical outlined style, explicit colors so dark mode / iOS can't recolor */
+html body.home nav a,
+html body.home nav a:link,
+html body.home nav a:visited {
   -webkit-appearance: none;
   appearance: none;
   color-scheme: light;
+  background-color: transparent;
+  color: #f6f3ec;
+  -webkit-text-fill-color: #f6f3ec;
+  border: 1px solid #cfc6b8;
+}
+html body.home nav a:hover,
+html body.home nav a:focus-visible,
+html body.home nav a:active {
   background-color: #f4efe6;
   color: #17211e;
   -webkit-text-fill-color: #17211e;
   border-color: #f4efe6;
-}
-html body.home nav a.primary:hover,
-html body.home nav a.primary:focus-visible,
-html body.home nav a.primary:active {
-  background-color: #e0b48a;
-  color: #17211e;
-  -webkit-text-fill-color: #17211e;
-  border-color: #e0b48a;
 }
