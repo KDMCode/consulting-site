@@ -408,3 +408,24 @@ textarea:focus-visible {
     inline-size: 100%;
   }
 }
+
+/* Homepage primary button: explicit colors so dark mode (light-dark vars) and iOS/Chrome can't recolor it */
+html body.home nav a.primary,
+html body.home nav a.primary:link,
+html body.home nav a.primary:visited {
+  -webkit-appearance: none;
+  appearance: none;
+  color-scheme: light;
+  background-color: #f4efe6;
+  color: #17211e;
+  -webkit-text-fill-color: #17211e;
+  border-color: #f4efe6;
+}
+html body.home nav a.primary:hover,
+html body.home nav a.primary:focus-visible,
+html body.home nav a.primary:active {
+  background-color: #e0b48a;
+  color: #17211e;
+  -webkit-text-fill-color: #17211e;
+  border-color: #e0b48a;
+}
