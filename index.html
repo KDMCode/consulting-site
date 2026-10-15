@@ -72,7 +72,11 @@
             <h2 id="contact-heading">Intro call</h2>
             <p>Leave a note for a free intro call.</p>
           </div>
-          <form id="contact" method="post" action="index.html" onsubmit="event.preventDefault(); document.getElementById('form-status').textContent = 'This form is not sending yet.';">
+          <form id="contact" method="post" action="https://api.web3forms.com/submit">
+            <input type="hidden" name="access_key" value="b184a59a-7b9f-4246-9d53-760a24d50055">
+            <input type="hidden" name="from_name" value="Kyle Miller consulting site">
+            <input type="hidden" name="subject" value="Consulting site inquiry">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="fields">
               <div class="field">
                 <label for="name">Name <span class="req">(required)</span></label>
@@ -92,9 +96,6 @@
             </div>
             <button type="submit">Submit</button>
             <p id="form-status" role="status"></p>
-            <noscript>
-              <p>This form is not sending yet.</p>
-            </noscript>
           </form>
         </section>
       </main>
@@ -116,6 +117,34 @@
 
         form.addEventListener("blur", (event) => syncInvalid(event.target), true);
         form.addEventListener("invalid", (event) => syncInvalid(event.target), true);
+        const status = document.getElementById("form-status");
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const name = form.elements.name.value.trim();
+          form.elements.subject.value = name ? "Consulting site inquiry: " + name : "Consulting site inquiry";
+          const button = form.querySelector('button[type="submit"]');
+          button.disabled = true;
+          status.textContent = "Sending…";
+          try {
+            const response = await fetch(form.action, {
+              method: "POST",
+              headers: { Accept: "application/json" },
+              body: new FormData(form)
+            });
+            const result = await response.json();
+            if (response.ok && result.success) {
+              form.reset();
+              status.textContent = "Thanks — your note was sent. I’ll be in touch soon.";
+            } else {
+              status.textContent = "Sorry, something went wrong. Please try again.";
+            }
+          } catch (error) {
+            status.textContent = "Sorry, something went wrong. Please try again.";
+          } finally {
+            button.disabled = false;
+          }
+        });
+
         form.addEventListener("input", (event) => {
           if (event.target.hasAttribute("aria-invalid")) {
             syncInvalid(event.target);
